@@ -1,43 +1,31 @@
 
-import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+const letters = "abcdefghijklmnopqrstuvwxyz";
 
-const scene = new THREE.Scene();
+function runGlitchAnimation(target, loop) {
+    let iterations = 0;
+    const interval = setInterval(() => {
+        target.innerText = target.innerText.split("")
+            .map((letter, index) => {
+                const dataText = target.dataset.text;
+                if (dataText[index] === " ") return " ";
+                if (index < iterations) return dataText[index];
+                let l = letters[Math.floor(Math.random() * 26)];
+                if (dataText[index] === dataText[index].toUpperCase()) return l.toUpperCase();
+                return l;
+            })
+            .join("");
 
-const camera = new THREE.PerspectiveCamera(
-    75, window.innerWidth / window.innerHeight, 0.1, 1000
-);
+        if (iterations >= target.dataset.text.length) clearInterval(interval);
 
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg'),
-});
-
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-camera.position.z += 30;
-
-const geo = new THREE.TorusGeometry(10, 3, 16, 100);
-const mat = new THREE.MeshStandardMaterial({color: 0xFF6347});
-
-const torus = new THREE.Mesh(geo, mat);
-
-scene.add(torus);
-
-const pLight = new THREE.PointLight(0xFFFFFF);
-pLight.position.set(0, 0, 0);
-scene.add(pLight)
-
-const aLight = new THREE.AmbientLight(0xFFFFFF);
-scene.add(aLight);
-
-function animate() {
-    requestAnimationFrame(animate);
-
-    torus.rotation.x += 0.01;
-    torus.rotation.y += 0.005;
-    torus.rotation.z += 0.01;
-
-    renderer.render(scene, camera);
+        iterations += 1 / loop;
+    }, 30);
 }
 
-animate();
+document.querySelector(".name").onmouseover = event => {
+    runGlitchAnimation(event.target, 3);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const targetElement = document.querySelector(".name");
+    runGlitchAnimation(targetElement, 6);
+});

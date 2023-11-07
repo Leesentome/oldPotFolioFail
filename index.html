@@ -7,12 +7,89 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    
-    <canvas id="bg"></canvas>
 
-    <div class="header"> Reniaud Felix </div>
+    <div class="header">
+        <div class="title">Reniaud Felix</div>
+    </div>
 
-    <div class="core"></div>
+    <div class="core">
+        <svg class="pcb" viewBox="0 0 400 400" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+            <defs>
+                <linearGradient id="horizontal-gradient">
+                <stop offset="0" stop-color="white" stop-opacity="0" />
+                <stop offset="0.2" stop-color="white" stop-opacity="1" />
+                <stop offset="0.8" stop-color="white" stop-opacity="1" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+                </linearGradient>
+
+                <linearGradient id="vertical-gradient" gradientTransform="rotate(90)">
+                    <stop offset="0" stop-color="white" stop-opacity="0" />
+                    <stop offset="0.2" stop-color="white" stop-opacity="1" />
+                    <stop offset="0.8" stop-color="white" stop-opacity="1" />
+                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                </linearGradient>
+                
+                <mask id="horizontal-gradient-mask">
+                    <rect x="0" y="0" width="400" height="400" fill="url(#horizontal-gradient)" />
+                </mask>
+
+                <mask id="vertical-gradient-mask">
+                    <rect x="0" y="0" width="400" height="400" fill="url(#vertical-gradient)" />
+                </mask>
+            </defs>
+            <g  mask="url(#vertical-gradient-mask)">
+                <g fill="none" stroke="#1cfdfd" stroke-width="5" mask="url(#horizontal-gradient-mask)">
+                    <ellipse rx="10" ry="10" transform="translate(160 90)" />
+                    <ellipse rx="10" ry="10" transform="translate(160 310)" />
+                    <ellipse rx="10" ry="10" transform="translate(240 310)" />
+                    <ellipse rx="10" ry="10" transform="translate(280 310)" />
+                    <ellipse rx="10" ry="10" transform="translate(120 310)" />
+                    <ellipse rx="10" ry="10" transform="translate(200 310)" />
+                    <ellipse rx="10" ry="10" transform="translate(240 90)" />
+                    <ellipse rx="10" ry="10" transform="translate(280 90)" />
+                    <ellipse rx="10" ry="10" transform="translate(350 30)" />
+                    <ellipse rx="10" ry="10" transform="translate(120 90)" />
+                    <ellipse rx="10" ry="10" transform="translate(90 120)" />
+                    <ellipse rx="10" ry="10" transform="translate(310 120)" />
+                    <ellipse rx="10" ry="10" transform="translate(310 200)" />
+                    <ellipse rx="10" ry="10" transform="translate(310 280)" />
+                    <ellipse rx="10" ry="10" transform="translate(310 240)" />
+                    <ellipse rx="10" ry="10" transform="translate(310 160)" />
+                    <ellipse rx="10" ry="10" transform="translate(90 200)" />
+                    <ellipse rx="10" ry="10" transform="translate(90 280)" />
+                    <ellipse rx="10" ry="10" transform="translate(30 320)" />
+                    <ellipse rx="10" ry="10" transform="translate(90 240)" />
+                    <ellipse rx="10" ry="10" transform="translate(90 160)" />
+                    <ellipse rx="10" ry="10" transform="translate(200 90)" />
+                    <path d="M0,40v-80" transform="translate(200 40)" />
+                    <path d="M0,280v80" transform="translate(200 40)" />
+                    <path d="M0,280v30l-30,30v20" transform="translate(240 40)" />
+                    <path d="M0,280l.576768,10-60,60v10" transform="translate(279.423232 40)" />
+                    <path d="M0,280v10l-30,30v20l10,10v10" transform="translate(120 40)" />
+                    <path d="M0,280v30l20,20v30" transform="translate(160 40)" />
+                    <path d="M-120,80h-19.75L-150,70l.0625-40L-170,11.091037L-170,0l-10-10h-20" transform="translate(200 40)" />
+                    <path d="M-120,80h-80" transform="matrix(1 0 0 1.5 200 40)" />
+                    <path d="M-120,80h-29.9375L-170,60h-30" transform="translate(200 120)" />
+                    <path d="M-120,80h-20.4375L-180,120h-20" transform="translate(200 160)" />
+                    <path d="M-120,80h-30l-20,20v10" transform="translate(200 200)" />
+                    <path d="M-170,130v20l20,20h10.25L-120,190v10" transform="translate(200 200)" />
+                    <path d="M120,240h20l10,10v80l20,20v10" transform="translate(200 40)" />
+                    <path d="M120,200h30l20,20v90l20,20h10" transform="translate(200 40)" />
+                    <path d="M120,160h39.423232l20.288384,20v110L190,300h10" transform="translate(200 40)" />
+                    <path d="M120,120h50l20,20h10" transform="translate(200 40)" />
+                    <path d="M120,80h10l30,30h40" transform="translate(200 40)" />
+                    <path d="M160,-8.846463l10.576768-.576769l20-20h10" transform="translate(199.423232 39.423232)" />
+                    <path d="M80,40v-30.0625L100,-10h40" transform="translate(199.423232 41.153537)" />
+                    <path d="M-80,40v-30.0625L-90,0h-40l-30-30v-10" transform="translate(200 40)" />
+                    <path d="M-40,40v-30l-20-20h-60l-20-20v-10" transform="translate(200 40)" />
+                    <path d="M0,40v-50l20-20v-10" transform="translate(240 40)" />
+                </g>
+            </g>
+        </svg>
+
+        <div class="proc"></div>
+        <div class="name" data-text="Reniaud Felix">Reniaud Felix</div>
+    </div>
 
     <div class="footer"></div>
 

@@ -1,4 +1,11 @@
 
+:root {
+    --black: #000000;
+    --grey: #303030;
+    --blue: #063ba2;
+    --light-blue: #1cfdfd;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -6,23 +13,75 @@ body {
     padding: 0;
 }
 
-#bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
 .header {
     width: 100%;
     height: 40px;
     position: fixed;
+    display: flex;
     top: 0;
     background: white;
-    box-shadow: 0 0 25px 5px black;
+    box-shadow: 0 0 25px 5px black; /* Attention px */
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .core {
     height: 100%;
     width: 100%;
-    background: pink;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(var(--grey) 0%, var(--black) 20%, 80%, var(--grey) 100%),
+        linear-gradient(90deg, var(--grey) 0%, var(--black) 10%, 90%, var(--grey) 100%);
+}
+
+.pcb {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.proc {
+    position: absolute;
+    width: 20%;
+    aspect-ratio: 1;
+    background: black;
+    border-radius: 5%;
+    box-shadow:
+        inset 0 0 10px 0 var(--light-blue),
+        0 0 10px 5px var(--light-blue);
+}
+
+.proc:hover {
+    box-shadow:
+        inset 0 0 10px 0 var(--light-blue),
+        0 0 25px 10px var(--light-blue);
+}
+
+.procBG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.name {
+    position: absolute;
+    font-family: 'Space Mono', monospace;
+    color:white;
+    font-size: 10vw;
+    width:auto;
+    height: auto;
+    margin:0 auto;
+    padding: 10px;
+    transform: translate(0, -100px);
+    background: rgba(0, 0, 0, 0.8);
 }
