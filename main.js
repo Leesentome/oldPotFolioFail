@@ -18,7 +18,7 @@ function runGlitchAnimation(target, loop) {
         if (iterations >= target.dataset.text.length) clearInterval(interval);
 
         iterations += 1 / loop;
-    }, 30);
+    }, 50);
 }
 
 document.querySelector(".name").onmouseover = event => {
