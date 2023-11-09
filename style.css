@@ -1,9 +1,12 @@
 
 :root {
     --black: #000000;
+    --light-gray: #F0F0F0;
     --grey: #303030;
-    --blue: #063ba2;
+    --blue: #00898b;
     --light-blue: #1cfdfd;
+    --white: #FFFFFF;
+    --header-height: 40px
 }
 
 body {
@@ -14,8 +17,9 @@ body {
 }
 
 .header {
+    z-index: 10;
     width: 100%;
-    height: 40px;
+    height: var(--header-height);
     position: fixed;
     display: flex;
     top: 0;
@@ -30,13 +34,15 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.core {
+.landing {
+    z-index: 1000;
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     background:
         linear-gradient(var(--grey) 0%, var(--black) 20%, 80%, var(--grey) 100%),
         linear-gradient(90deg, var(--grey) 0%, var(--black) 10%, 90%, var(--grey) 100%);
@@ -48,29 +54,57 @@ body {
     height: 100%;
 }
 
-.proc {
+.centralunit {    
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20%;
     aspect-ratio: 1;
-    background: black;
-    border-radius: 5%;
-    box-shadow:
-        inset 0 0 10px 0 var(--light-blue),
-        0 0 10px 5px var(--light-blue);
 }
 
-.proc:hover {
-    box-shadow:
-        inset 0 0 10px 0 var(--light-blue),
-        0 0 25px 10px var(--light-blue);
-}
-
-.procBG {
+.centralunit span {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    box-sizing: border-box;
+    box-shadow:
+        inset 0 0 5px 0 var(--light-blue),
+        0 0 15px 0 var(--light-blue);
+    border-radius: 50%;
+    display: none;
+    animation: none;
+}
+@keyframes shockblast
+{
+    0%
+    {
+        width: calc(50% + (var(--i) - 1) * 20px);
+        height: calc(50% + (var(--i) - 1) * 20px);
+        box-shadow:
+            inset 0 0 10px 0 var(--light-blue),
+            0 0 10px 5px var(--light-blue);
+        opacity: 1;
+    }
+    65%
+    {
+        opacity: 1;
+    }
+    80%
+    {   
+        width: calc(250% + (var(--i) - 1) * 80px);
+        height: calc(250% + (var(--i) - 1) * 80px);
+        box-shadow:
+            inset 0 0 20px 0 var(--light-blue),
+            0 0 50px 25px var(--light-blue);
+    }
+    100%
+    {   
+        width: calc(250% + (var(--i) - 1) * 80px + 1px);
+        height: calc(250% + (var(--i) - 1) * 80px + 1px);
+        box-shadow:
+            inset 0 0 20px 0 var(--light-blue),
+            0 0 50px 25px var(--light-blue);
+        opacity: 0;
+    }
 }
 
 .name {
@@ -84,4 +118,59 @@ body {
     padding: 10px;
     transform: translate(0, -100px);
     background: rgba(0, 0, 0, 0.8);
+}
+
+.proc {
+    width: 100%;
+    height: 100%;
+    background: var(--blue);
+    border-radius: 5%;
+    box-shadow:
+        0 0 6px 0 var(--light-gray),
+        0 0 0 5px var(--blue),
+        0 0 6px 6px var(--light-gray),
+        0 0 0 11px var(--blue),
+        0 0 6px 11px var(--light-gray),
+        0 0 6px 20px var(--grey),
+        0 0 0 20px var(--black);
+}
+
+.proc:hover {
+    box-shadow:
+        inset 0 0 10px 0 var(--light-blue),
+        0 0 25px 10px var(--light-blue);
+}
+
+.proc canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5%;
+}
+
+.glitchTrans {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    display: none;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.glitchedBox {
+    position: absolute;
+}
+
+.core {
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    position: absolute;
+    bottom: 0;
+}
+
+.footer {
+    z-index: 9;
 }

@@ -12,20 +12,20 @@
         <div class="title">Reniaud Felix</div>
     </div>
 
-    <div class="core">
+    <div class="landing">
         <svg class="pcb" viewBox="0 0 400 400" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
             <defs>
                 <linearGradient id="horizontal-gradient">
                 <stop offset="0" stop-color="white" stop-opacity="0" />
-                <stop offset="0.2" stop-color="white" stop-opacity="1" />
-                <stop offset="0.8" stop-color="white" stop-opacity="1" />
+                <stop offset="0.25" stop-color="white" stop-opacity="1" />
+                <stop offset="0.75" stop-color="white" stop-opacity="1" />
                 <stop offset="1" stop-color="white" stop-opacity="0" />
                 </linearGradient>
 
                 <linearGradient id="vertical-gradient" gradientTransform="rotate(90)">
                     <stop offset="0" stop-color="white" stop-opacity="0" />
-                    <stop offset="0.2" stop-color="white" stop-opacity="1" />
-                    <stop offset="0.8" stop-color="white" stop-opacity="1" />
+                    <stop offset="0.25" stop-color="white" stop-opacity="1" />
+                    <stop offset="0.85" stop-color="white" stop-opacity="1" />
                     <stop offset="1" stop-color="white" stop-opacity="0" />
                 </linearGradient>
                 
@@ -86,13 +86,29 @@
                 </g>
             </g>
         </svg>
-
-        <div class="proc"></div>
+        <div class="centralunit">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <div class="proc">
+                <canvas id='c'></canvas>
+            </div>
+        </div>
         <div class="name" data-text="Reniaud Felix">Reniaud Felix</div>
+    </div>
+
+    <div class="glitchTrans">
+
+    </div>
+
+    <div class="core">
+
     </div>
 
     <div class="footer"></div>
 
     <script type="module" src="main.js"></script>
+    <script type="module" src="circuit.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 </html>
